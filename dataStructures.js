@@ -44,21 +44,6 @@ const nest = (body = Map({}), del, merge) => (key, value = Map({})) => {
         thisBody.set(key, thisValue);
 }
 
-const obj = {
-    body: {
-        query: {
-            match: 'hey',
-            bool: true
-        },
-        hello: {
-            hey: 'hey',
-            match: {
-                nuccu: 'duccu'
-            }
-        }
-    }
-}
-
 const removeFromObj = key => obj =>
     traverse(v => Map.isMap(v) && v.has(key) ? v.delete(key) : v)(toMap(obj));
 
