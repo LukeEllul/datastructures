@@ -8,6 +8,8 @@ const checkIfObjOrMaporList = v => Array.isArray(v) || List.isList(v) || checkIf
 const toMap = obj => Map.isMap(obj) ? obj : fromJS(obj);
 const toList = array => List.isList(array) ? array : fromJS(array);
 
+const fromMap = obj => Map.isMap(obj) ? obj.toJS() : obj;
+
 function depthOf(obj) {
     const object = Map.isMap(obj) ? obj.toJS() : obj;
     let level = 1;
@@ -56,6 +58,7 @@ module.exports = {
     checkIfObjOrMaporList,
     toMap,
     toList,
+    fromMap,
     depthOf,
     get,
     traverse,
